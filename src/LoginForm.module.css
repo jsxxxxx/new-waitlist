@@ -1,0 +1,43 @@
+/* LoginForm.module.css */
+.loginForm {
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem auto;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  border-radius: 8px;
+}
+
+.loginForm h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.loginForm input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.loginForm button {
+  background-color: #333;
+  color: white;
+  padding: 0.75rem;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.loginForm button:hover {
+  background-color: #444;
+}
+
+.loginForm .error {
+  color: red;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
