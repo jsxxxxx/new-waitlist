@@ -1,0 +1,29 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow public read access to walletRecovery
+    match /walletRecovery/{document=**} {
+      // Allow anyone to read walletRecovery documents
+      allow read: if true;
+      // Explicitly allow create
+      allow create: if true;
+      // Explicitly allow delete
+      allow delete: if request.auth != null;  // Only allow delete if authenticated
+    }
+    
+    // Waitlist collection rules
+    match /waitlist/{document=**} {
+      // Allow read if user is authenticated
+      allow read: if request.auth != null;
+      // Separate write rules for different operations
+      allow create: if true;
+      allow update, delete: if request.auth != null;  // Allow update/delete if authenticated
+    }
+    
+    // Default deny all other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
